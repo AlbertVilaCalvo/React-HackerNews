@@ -8,12 +8,6 @@
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
   "author": "Albert Vila Calvo",
   "license": "ISC",
   "dependencies": {

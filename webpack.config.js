@@ -16,11 +16,25 @@ module.exports = {
     // https://webpack.js.org/concepts/loaders/
     // https://webpack.js.org/loaders/
     rules: [
-      // Babel presets are declared in package.json.
-      // preset-env converts modern JS to old - https://babeljs.io/docs/en/babel-preset-env
-      // preset-react transform JSX to React.createElement (and other things) - https://babeljs.io/docs/en/babel-preset-react
-      { test: /\.(js)$/, use: 'babel-loader' },
+      // https://webpack.js.org/loaders/babel-loader/
+      {
+        test: /\.(js)$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              // Convert modern JS to old
+              // https://babeljs.io/docs/en/babel-preset-env
+              '@babel/preset-env',
+              // Transform JSX to React.createElement (and other things)
+              // https://babeljs.io/docs/en/babel-preset-react
+              '@babel/preset-react',
+            ],
+          },
+        },
+      },
       // Allow "import './index.css'" in JS files
+      // https://webpack.js.org/loaders/style-loader/
       { test: /\.(css)$/, use: ['style-loader', 'css-loader'] },
     ],
   },
