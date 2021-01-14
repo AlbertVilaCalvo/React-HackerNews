@@ -31,6 +31,11 @@ module.exports = {
               // https://babeljs.io/docs/en/babel-preset-react
               '@babel/preset-react',
             ],
+            // https://babeljs.io/docs/en/plugins
+            plugins: [
+              // https://babeljs.io/docs/en/babel-plugin-syntax-class-properties
+              '@babel/plugin-proposal-class-properties',
+            ],
           },
         },
       },
