@@ -1,9 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import { fetchMainPosts } from '../utils/api'
+import PostList from './PostList'
 
-class Top extends Component {
+class Top extends React.Component {
+  state = {
+    posts: [],
+  }
+
+  componentDidMount() {
+    fetchMainPosts('top').then((posts) => {
+      console.log(posts)
+      this.setState({ posts })
+    })
+  }
+
   render() {
-    return <div>Top</div>
+    const { posts } = this.state
+    return (
+      <>
+        <div>Top</div>
+        {posts.length === 0 ? <p>Loading</p> : <PostList posts={posts} />}
+      </>
+    )
   }
 }
 
