@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
+    publicPath: '/', // For React Router to work in development - see 'devServer' below
   },
   module: {
     // Loaders transform files before they are added to the bundle
@@ -49,4 +50,13 @@ module.exports = {
       template: 'src/index.html',
     }),
   ],
+  // For React Router to work in development, otherwise we get "Cannot GET /new".
+  // Requires 'publicPath' above too. It tells the dev server to not try to handle a
+  // request to a route, but instead fall back to whatever path we have in 'publicPath'.
+  // This allows React to load, and React Router to handle the route.
+  // Notice that when we do 'npm run start' it says "404s will fallback to /index.html".
+  // See https://stackoverflow.com/questions/43209666/react-router-v4-cannot-get-url
+  devServer: {
+    historyApiFallback: true,
+  },
 }
