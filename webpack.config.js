@@ -29,7 +29,14 @@ module.exports = {
               '@babel/preset-env',
               // Transform JSX to React.createElement (and other things)
               // https://babeljs.io/docs/en/babel-preset-react
-              '@babel/preset-react',
+              [
+                '@babel/preset-react',
+                // Enable new JSX transform
+                // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+                {
+                  runtime: 'automatic',
+                },
+              ],
             ],
             // https://babeljs.io/docs/en/plugins
             plugins: [
