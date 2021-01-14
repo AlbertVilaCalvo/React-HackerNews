@@ -52,3 +52,21 @@ li {
 .active {
   color: rgb(187, 46, 31);
 }
+
+.post {
+  margin: 20px 0;
+}
+
+.link {
+  color: rgb(187, 46, 31);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.meta-info-light {
+  color: gray;
+}
+
+.meta-info-light a {
+  color: black;
+}
