@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Posts from './Posts'
 
-class New extends Component {
-  render() {
-    return <div>New</div>
-  }
-}
+const New = () => <Posts type="new" />
 
 New.propTypes = {}
 
