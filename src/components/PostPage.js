@@ -4,6 +4,7 @@ import { fetchItem, fetchUser } from '../utils/api'
 import UserPosts from './UserPosts'
 import { Link } from 'react-router-dom'
 import Comments from './Comments'
+import { formatDate } from '../utils/helpers'
 
 class PostPage extends Component {
   state = {
@@ -36,7 +37,7 @@ class PostPage extends Component {
               by <Link to={`/user?id=${post.by}`}>{post.by}</Link>
             </span>
             <span>
-              on <b>{post.time}</b>
+              on <b>{formatDate(post.time)}</b>
             </span>
             <span>
               with <b>{post.descendants}</b> comments

@@ -2,6 +2,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { fetchUser } from '../utils/api'
 import UserPosts from './UserPosts'
+import { formatDate } from '../utils/helpers'
 
 class User extends Component {
   state = {
@@ -28,7 +29,7 @@ class User extends Component {
           <h1 className="header">{user.id}</h1>
           <div className="meta-info-light">
             <span>
-              joined <b>{user.created}</b>
+              joined <b>{formatDate(user.created)}</b>
             </span>
             <span>
               has <b>{user.karma}</b> karma

@@ -2,6 +2,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { fetchComments } from '../utils/api'
 import { Link } from 'react-router-dom'
+import { formatDate } from '../utils/helpers'
 
 class Comments extends Component {
   state = {
@@ -30,7 +31,7 @@ class Comments extends Component {
                 <span>
                   by <Link to={`/user?id=${comment.by}`}>{comment.by}</Link>
                 </span>
-                <span>on {comment.time}</span>
+                <span>on {formatDate(comment.time)}</span>
               </div>
               <p dangerouslySetInnerHTML={{ __html: comment.text }} />
             </div>

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { formatDate } from '../utils/helpers'
 
 const Post = ({ post }) => {
   return (
@@ -12,7 +13,7 @@ const Post = ({ post }) => {
         <span>
           by <Link to={`/user?id=${post.by}`}>{post.by}</Link>
         </span>
-        <span>on {post.time}</span>
+        <span>on {formatDate(post.time)}</span>
         <span>
           with <Link to={`/post?id=${post.id}`}>{post.descendants}</Link>{' '}
           comments
