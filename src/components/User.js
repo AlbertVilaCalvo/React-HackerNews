@@ -35,7 +35,7 @@ class User extends Component {
               has <b>{user.karma.toLocaleString()}</b> karma
             </span>
           </div>
-          <p>{user.about}</p>
+          <p dangerouslySetInnerHTML={{ __html: user.about }} />
           <h2>Posts</h2>
           <UserPosts postIds={user.submitted} />
         </>
