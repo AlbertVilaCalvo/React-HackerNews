@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { fetchItem, fetchUser } from '../utils/api'
 import UserPosts from './UserPosts'
 import { Link } from 'react-router-dom'
+import Comments from './Comments'
 
 class PostPage extends Component {
   state = {
@@ -42,6 +43,7 @@ class PostPage extends Component {
             </span>
           </div>
           <p></p>
+          <Comments commentIds={post.kids} />
         </>
       )
     }
