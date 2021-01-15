@@ -4,6 +4,8 @@ Final exercise of the React course of [ui.dev](https://ui.dev) - see the [Websit
 
 Exercise instructions/requirements: https://github.com/uidotdev/react-course-curriculum
 
+The 'official' solution is available at https://hn.ui.dev
+
 To develop: `npm run start`
 
 To build for production: `npm run build`
