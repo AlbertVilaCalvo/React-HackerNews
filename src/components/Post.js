@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const Post = ({ post }) => {
   return (
@@ -9,11 +10,12 @@ const Post = ({ post }) => {
       <div className="meta-info-light">
         <span>{post.score} points</span>
         <span>
-          by <a href={`/user?id=${post.by}`}>{post.by}</a>
+          by <Link to={`/user?id=${post.by}`}>{post.by}</Link>
         </span>
         <span>on {post.time}</span>
         <span>
-          with <a href={`/post?id=${post.id}`}>{post.descendants}</a> comments
+          with <Link to={`/post?id=${post.id}`}>{post.descendants}</Link>{' '}
+          comments
         </span>
       </div>
     </>
