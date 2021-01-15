@@ -66,12 +66,12 @@ class App extends React.Component {
                 <Switch>
                   <Route path="/new" component={New} />
                   {/* Important: if we do:
-                 <Route path="/user">
-                   <User />
-                 </Route>
-                 Then we don't get the props history, location and match in User.
-                 We instead need to do <Route component={User} />
-               */}
+                    <Route path="/user">
+                      <User />
+                    </Route>
+                    Then we don't get the props history, location and match in User.
+                    We instead need to do <Route component={User} />
+                  */}
                   {/* /user?id=userId */}
                   <Route path="/user" component={User} />
                   {/* /post?id=postId */}
