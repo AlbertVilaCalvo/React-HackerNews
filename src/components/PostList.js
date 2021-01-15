@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
-import Post from './Post'
+import PostListItem from './PostListItem'
 
 export default function PostList({ posts }) {
   return (
     <ul>
       {posts.map((post) => (
         <li key={post.id} className="post">
-          <Post post={post} />
+          <PostListItem post={post} />
         </li>
       ))}
     </ul>

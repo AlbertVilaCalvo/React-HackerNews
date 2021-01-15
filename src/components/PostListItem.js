@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
 
-const Post = ({ post }) => {
+const PostListItem = ({ post }) => {
   const theme = useContext(ThemeContext)
 
   return (
@@ -27,8 +27,8 @@ const Post = ({ post }) => {
   )
 }
 
-Post.propTypes = {
+PostListItem.propTypes = {
   post: PropTypes.object.isRequired,
 }
 
-export default Post
+export default PostListItem
