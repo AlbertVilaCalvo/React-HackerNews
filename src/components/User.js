@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { fetchUser } from '../utils/api'
 import UserPosts from './UserPosts'
 import { formatDate } from '../utils/helpers'
+import ThemeContext from '../contexts/ThemeContext'
 
 class User extends Component {
   state = {
@@ -21,13 +22,15 @@ class User extends Component {
 
   render() {
     const { user } = this.state
+    const theme = this.context
+
     if (user === null) {
       return <p>Fetching User</p>
     } else {
       return (
         <>
           <h1 className="header">{user.id}</h1>
-          <div className="meta-info-light">
+          <div className={`meta-info-${theme}`}>
             <span>
               joined <b>{formatDate(user.created)}</b>
             </span>
@@ -43,6 +46,8 @@ class User extends Component {
     }
   }
 }
+
+User.contextType = ThemeContext
 
 User.propTypes = {}
 

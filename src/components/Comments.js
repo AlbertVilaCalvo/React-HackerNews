@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { fetchComments } from '../utils/api'
 import { Link } from 'react-router-dom'
 import { formatDate } from '../utils/helpers'
+import ThemeContext from '../contexts/ThemeContext'
 
 class Comments extends Component {
   state = {
@@ -20,6 +21,8 @@ class Comments extends Component {
 
   render() {
     const { comments } = this.state
+    const theme = this.context
+
     if (comments.length === 0) {
       return <p>Fetching Comments</p>
     } else {
@@ -27,7 +30,7 @@ class Comments extends Component {
         <>
           {comments.map((comment) => (
             <div key={comment.by} className="comment">
-              <div className="meta-info-light">
+              <div className={`meta-info-${theme}`}>
                 <span>
                   by <Link to={`/user?id=${comment.by}`}>{comment.by}</Link>
                 </span>
@@ -41,6 +44,8 @@ class Comments extends Component {
     }
   }
 }
+
+Comments.contextType = ThemeContext
 
 Comments.propTypes = {
   commentIds: PropTypes.arrayOf(PropTypes.number).isRequired,

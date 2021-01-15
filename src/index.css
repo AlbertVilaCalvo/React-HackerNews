@@ -11,6 +11,16 @@ body {
     Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
+.dark {
+  color: #dadada;
+  background: #1c2022;
+  min-height: 100%;
+}
+
+.dark a {
+  color: rgb(203, 203, 203);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -53,6 +63,11 @@ li {
   color: rgb(187, 46, 31);
 }
 
+.btn-clear {
+  border: none;
+  background: transparent;
+}
+
 .header {
   margin-bottom: 5px;
 }
@@ -78,6 +93,19 @@ li {
 
 .meta-info-light a {
   color: black;
+}
+
+.meta-info-dark {
+  margin-top: 5px;
+  color: gray;
+}
+
+.meta-info-dark span {
+  margin: 10px 6px 10px 0;
+}
+
+.meta-info-dark a {
+  color: #bebebe;
 }
 
 .comment {

@@ -1,10 +1,10 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { fetchItem, fetchUser } from '../utils/api'
-import UserPosts from './UserPosts'
 import { Link } from 'react-router-dom'
 import Comments from './Comments'
 import { formatDate } from '../utils/helpers'
+import ThemeContext from '../contexts/ThemeContext'
 
 class PostPage extends Component {
   state = {
@@ -22,6 +22,8 @@ class PostPage extends Component {
 
   render() {
     const { post } = this.state
+    const theme = this.context
+
     if (post === null) {
       return <p>Fetching Post</p>
     } else {
@@ -32,7 +34,7 @@ class PostPage extends Component {
               {post.title}
             </a>
           </h1>
-          <div className="meta-info-light">
+          <div className={`meta-info-${theme}`}>
             <span>
               by <Link to={`/user?id=${post.by}`}>{post.by}</Link>
             </span>
@@ -49,6 +51,8 @@ class PostPage extends Component {
     }
   }
 }
+
+PostPage.contextType = ThemeContext
 
 PostPage.propTypes = {}
 
