@@ -3,30 +3,39 @@ import PropTypes from 'prop-types'
 import { fetchPosts } from '../utils/api'
 import PostList from './PostList'
 import Loading from './Loading'
+import ErrorMessage from './ErrorMessage'
 
 class UserPosts extends Component {
   state = {
-    posts: [],
+    error: null,
+    posts: null,
   }
 
   componentDidMount() {
     console.log('UserPosts componentDidMount - postIds:', this.props.postIds)
-    fetchPosts(this.props.postIds).then((posts) => {
-      console.log(posts)
-      this.setState({ posts })
-    })
+    fetchPosts(this.props.postIds)
+      .then((posts) => {
+        console.log(posts)
+        this.setState({ posts })
+      })
+      .catch((error) => {
+        console.error('UserPosts', error)
+        this.setState({ error })
+      })
   }
 
   render() {
-    console.log('UserPosts render - postIds:', this.props.postIds)
-    const { posts } = this.state
-    if (posts.length === 0) {
-      console.log('UserPosts render - posts.length === 0')
-      return <Loading text="Fetching Posts" />
-    } else {
-      console.log('UserPosts render - state.posts[0].title:', posts[0].title)
-      return <PostList posts={posts} />
+    const { error, posts } = this.state
+
+    if (error !== null) {
+      return <ErrorMessage />
     }
+
+    if (posts === null) {
+      return <Loading text="Fetching Posts" />
+    }
+
+    return <PostList posts={posts} />
   }
 }
 
