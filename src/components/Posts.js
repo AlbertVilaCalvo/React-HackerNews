@@ -3,30 +3,38 @@ import PropTypes from 'prop-types'
 import { fetchMainPosts } from '../utils/api'
 import PostList from './PostList'
 import Loading from './Loading'
+import ErrorMessage from './ErrorMessage'
 
 class Posts extends Component {
   state = {
-    posts: [],
+    error: null,
+    posts: null,
   }
 
   componentDidMount() {
     console.log('Posts componentDidMount - type:', this.props.type)
-    fetchMainPosts(this.props.type).then((posts) => {
-      console.log(posts)
-      this.setState({ posts })
-    })
+    fetchMainPosts(this.props.type)
+      .then((posts) => {
+        this.setState({ posts })
+      })
+      .catch((error) => {
+        console.error(error)
+        this.setState({ error })
+      })
   }
 
   render() {
-    console.log('Posts render - type:', this.props.type)
-    const { posts } = this.state
-    if (posts.length === 0) {
-      console.log('Posts render - posts.length === 0')
-      return <Loading />
-    } else {
-      console.log('Posts render - state.posts[0].title:', posts[0].title)
-      return <PostList posts={posts} />
+    const { error, posts } = this.state
+
+    if (error !== null) {
+      return <ErrorMessage />
     }
+
+    if (posts === null) {
+      return <Loading />
+    }
+
+    return <PostList posts={posts} />
   }
 }
 
