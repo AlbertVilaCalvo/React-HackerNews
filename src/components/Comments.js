@@ -5,44 +5,53 @@ import { Link } from 'react-router-dom'
 import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
 import Loading from './Loading'
+import ErrorMessage from './ErrorMessage'
 
 class Comments extends Component {
   state = {
-    comments: [],
+    error: null,
+    comments: null,
   }
 
   componentDidMount() {
     const commentIds = this.props.commentIds
-    console.log('Comments componentDidMount commentIds', commentIds)
-    fetchComments(commentIds).then((comments) => {
-      console.log('comments', commentIds, comments)
-      this.setState({ comments })
-    })
+    fetchComments(commentIds)
+      .then((comments) => {
+        this.setState({ comments })
+      })
+      .catch((error) => {
+        console.error('Comments', error)
+        this.setState({ error })
+      })
   }
 
   render() {
-    const { comments } = this.state
+    const { error, comments } = this.state
     const theme = this.context
 
-    if (comments.length === 0) {
-      return <Loading text="Fetching Comments" />
-    } else {
-      return (
-        <>
-          {comments.map((comment) => (
-            <div key={comment.by} className="comment">
-              <div className={`meta-info-${theme}`}>
-                <span>
-                  by <Link to={`/user?id=${comment.by}`}>{comment.by}</Link>
-                </span>
-                <span>on {formatDate(comment.time)}</span>
-              </div>
-              <p dangerouslySetInnerHTML={{ __html: comment.text }} />
-            </div>
-          ))}
-        </>
-      )
+    if (error !== null) {
+      return <ErrorMessage />
     }
+
+    if (comments === null) {
+      return <Loading text="Fetching Comments" />
+    }
+
+    return (
+      <>
+        {comments.map((comment) => (
+          <div key={comment.by} className="comment">
+            <div className={`meta-info-${theme}`}>
+              <span>
+                by <Link to={`/user?id=${comment.by}`}>{comment.by}</Link>
+              </span>
+              <span>on {formatDate(comment.time)}</span>
+            </div>
+            <p dangerouslySetInnerHTML={{ __html: comment.text }} />
+          </div>
+        ))}
+      </>
+    )
   }
 }
 
