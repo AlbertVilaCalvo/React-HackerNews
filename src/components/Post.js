@@ -7,11 +7,11 @@ const Post = ({ post }) => {
         {post.title}
       </a>
       <div className="meta-info-light">
-        <span>{post.score} points </span>
+        <span>{post.score} points</span>
         <span>
           by <a href={`/user?id=${post.by}`}>{post.by}</a>
         </span>
-        <span> on {post.time} </span>
+        <span>on {post.time}</span>
         <span>
           with <a href={`/post?id=${post.id}`}>{post.descendants}</a> comments
         </span>

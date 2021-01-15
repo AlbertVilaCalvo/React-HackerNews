@@ -64,7 +64,12 @@ li {
 }
 
 .meta-info-light {
+  margin-top: 5px;
   color: gray;
+}
+
+.meta-info-light span {
+  margin: 10px 6px 10px 0;
 }
 
 .meta-info-light a {
