@@ -18,7 +18,7 @@ class Posts extends Component {
         this.setState({ posts })
       })
       .catch((error) => {
-        console.error(error)
+        console.error('Posts', error)
         this.setState({ error })
       })
   }
