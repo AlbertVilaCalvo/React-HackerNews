@@ -32,10 +32,11 @@ class User extends Component {
               joined <b>{formatDate(user.created)}</b>
             </span>
             <span>
-              has <b>{user.karma}</b> karma
+              has <b>{user.karma.toLocaleString()}</b> karma
             </span>
           </div>
           <p>{user.about}</p>
+          <h2>Posts</h2>
           <UserPosts postIds={user.submitted} />
         </>
       )

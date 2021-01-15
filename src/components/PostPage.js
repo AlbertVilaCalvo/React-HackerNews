@@ -36,11 +36,10 @@ class PostPage extends Component {
             <span>
               by <Link to={`/user?id=${post.by}`}>{post.by}</Link>
             </span>
+            <span>on {formatDate(post.time)}</span>
             <span>
-              on <b>{formatDate(post.time)}</b>
-            </span>
-            <span>
-              with <b>{post.descendants}</b> comments
+              with <Link to={`/post?id=${post.id}`}>{post.descendants}</Link>{' '}
+              comments
             </span>
           </div>
           <p></p>
