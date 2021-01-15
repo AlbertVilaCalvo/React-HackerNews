@@ -10,6 +10,7 @@ import {
 import New from './components/New'
 import Top from './components/Top'
 import User from './components/User'
+import PostPage from './components/PostPage'
 
 class App extends React.Component {
   render() {
@@ -51,6 +52,8 @@ class App extends React.Component {
                */}
               {/* /user?id=userId */}
               <Route path="/user" component={User} />
+              {/* /post?id=postId */}
+              <Route path="/post" component={PostPage} />
               <Route path="/" component={Top} />
             </Switch>
           </main>
