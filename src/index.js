@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 import New from './components/New'
 import Top from './components/Top'
+import User from './components/User'
 
 class App extends React.Component {
   render() {
@@ -40,12 +41,17 @@ class App extends React.Component {
           </nav>
           <main>
             <Switch>
-              <Route path="/new">
-                <New />
-              </Route>
-              <Route path="/">
-                <Top />
-              </Route>
+              <Route path="/new" component={New} />
+              {/* Important: if we do:
+                 <Route path="/user">
+                   <User />
+                 </Route>
+                 Then we don't get the props history, location and match in User.
+                 We instead need to do <Route component={User} />
+               */}
+              {/* /user?id=userId */}
+              <Route path="/user" component={User} />
+              <Route path="/" component={Top} />
             </Switch>
           </main>
         </div>

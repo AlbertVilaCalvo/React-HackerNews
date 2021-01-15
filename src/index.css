@@ -53,6 +53,10 @@ li {
   color: rgb(187, 46, 31);
 }
 
+.header {
+  margin-bottom: 5px;
+}
+
 .post {
   margin: 20px 0;
 }
