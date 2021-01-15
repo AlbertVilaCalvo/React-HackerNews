@@ -2,6 +2,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { fetchPosts } from '../utils/api'
 import PostList from './PostList'
+import Loading from './Loading'
 
 class UserPosts extends Component {
   state = {
@@ -21,7 +22,7 @@ class UserPosts extends Component {
     const { posts } = this.state
     if (posts.length === 0) {
       console.log('UserPosts render - posts.length === 0')
-      return <p>Fetching Posts</p>
+      return <Loading text="Fetching Posts" />
     } else {
       console.log('UserPosts render - state.posts[0].title:', posts[0].title)
       return <PostList posts={posts} />

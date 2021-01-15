@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Comments from './Comments'
 import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
+import Loading from './Loading'
 
 class PostPage extends Component {
   state = {
@@ -25,7 +26,7 @@ class PostPage extends Component {
     const theme = this.context
 
     if (post === null) {
-      return <p>Fetching Post</p>
+      return <Loading text="Fetching Post" />
     } else {
       return (
         <>
@@ -45,7 +46,7 @@ class PostPage extends Component {
             </span>
           </div>
           <p></p>
-          <Comments commentIds={post.kids} />
+          {post.descendants !== 0 && <Comments commentIds={post.kids} />}
         </>
       )
     }

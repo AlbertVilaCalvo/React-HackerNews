@@ -2,6 +2,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { fetchMainPosts } from '../utils/api'
 import PostList from './PostList'
+import Loading from './Loading'
 
 class Posts extends Component {
   state = {
@@ -21,7 +22,7 @@ class Posts extends Component {
     const { posts } = this.state
     if (posts.length === 0) {
       console.log('Posts render - posts.length === 0')
-      return <p>Loading</p>
+      return <Loading />
     } else {
       console.log('Posts render - state.posts[0].title:', posts[0].title)
       return <PostList posts={posts} />

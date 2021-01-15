@@ -4,6 +4,7 @@ import { fetchComments } from '../utils/api'
 import { Link } from 'react-router-dom'
 import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
+import Loading from './Loading'
 
 class Comments extends Component {
   state = {
@@ -24,7 +25,7 @@ class Comments extends Component {
     const theme = this.context
 
     if (comments.length === 0) {
-      return <p>Fetching Comments</p>
+      return <Loading text="Fetching Comments" />
     } else {
       return (
         <>

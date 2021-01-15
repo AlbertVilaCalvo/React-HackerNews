@@ -4,6 +4,7 @@ import { fetchUser } from '../utils/api'
 import UserPosts from './UserPosts'
 import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
+import Loading from './Loading'
 
 class User extends Component {
   state = {
@@ -25,7 +26,7 @@ class User extends Component {
     const theme = this.context
 
     if (user === null) {
-      return <p>Fetching User</p>
+      return <Loading text="Fetching User" />
     } else {
       return (
         <>
