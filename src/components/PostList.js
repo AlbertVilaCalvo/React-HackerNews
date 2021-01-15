@@ -2,6 +2,10 @@ import PropTypes from 'prop-types'
 import PostListItem from './PostListItem'
 
 export default function PostList({ posts }) {
+  if (posts.length === 0) {
+    return <p className="center-text">0 posts :(</p>
+  }
+
   return (
     <ul>
       {posts.map((post) => (
