@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { fetchMainPosts } from '../utils/api'
 import PostList from './PostList'

@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { fetchUser } from '../utils/api'
+import UserPosts from './UserPosts'
 
 class User extends Component {
   state = {
@@ -20,7 +21,7 @@ class User extends Component {
   render() {
     const { user } = this.state
     if (user === null) {
-      return <p>Loading</p>
+      return <p>Fetching User</p>
     } else {
       return (
         <>
@@ -34,6 +35,7 @@ class User extends Component {
             </span>
           </div>
           <p>{user.about}</p>
+          <UserPosts postIds={user.submitted} />
         </>
       )
     }
