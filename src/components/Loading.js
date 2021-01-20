@@ -10,11 +10,11 @@ const style = {
   textAlign: 'center',
 }
 function Loading({ text = 'Loading' }) {
-  const [content, setText] = useState(text)
+  const [content, setContent] = useState(text)
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
-      setText((c) => {
+      setContent((c) => {
         if (c.includes('...')) {
           return text
         } else {
