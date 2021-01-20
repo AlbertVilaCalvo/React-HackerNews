@@ -18,12 +18,12 @@ function Loading({ text = 'Loading' }) {
         if (c.includes('...')) {
           return text
         } else {
-          return content + '.'
+          return c + '.'
         }
       })
     }, 300)
     return () => window.clearInterval(intervalId)
-  }, [content])
+  }, [text])
 
   return <p style={style}>{content}</p>
 }
