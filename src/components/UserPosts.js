@@ -4,39 +4,38 @@ import { fetchPosts } from '../utils/api'
 import PostList from './PostList'
 import Loading from './Loading'
 import ErrorMessage from './ErrorMessage'
+import { useState, useEffect } from 'react'
 
-class UserPosts extends Component {
-  state = {
+function UserPosts({ postIds }) {
+  const [state, setState] = useState({
     error: null,
     posts: null,
-  }
+  })
 
-  componentDidMount() {
-    console.log('UserPosts componentDidMount - postIds:', this.props.postIds)
-    fetchPosts(this.props.postIds)
+  useEffect(() => {
+    console.log('UserPosts componentDidMount - postIds:', postIds)
+    fetchPosts(postIds)
       .then((posts) => {
         console.log(posts)
-        this.setState({ posts })
+        setState({ posts, error: null })
       })
       .catch((error) => {
         console.error('UserPosts', error)
-        this.setState({ error })
+        setState({ posts: null, error })
       })
+  }, [])
+
+  const { error, posts } = state
+
+  if (error !== null) {
+    return <ErrorMessage />
   }
 
-  render() {
-    const { error, posts } = this.state
-
-    if (error !== null) {
-      return <ErrorMessage />
-    }
-
-    if (posts === null) {
-      return <Loading text="Fetching Posts" />
-    }
-
-    return <PostList posts={posts} />
+  if (posts === null) {
+    return <Loading text="Fetching Posts" />
   }
+
+  return <PostList posts={posts} />
 }
 
 UserPosts.propTypes = {
