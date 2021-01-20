@@ -1,4 +1,3 @@
-import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { fetchPosts } from '../utils/api'
 import PostList from './PostList'
@@ -23,7 +22,7 @@ function UserPosts({ postIds }) {
         console.error('UserPosts', error)
         setState({ posts: null, error })
       })
-  }, [])
+  }, [postIds])
 
   const { error, posts } = state
 

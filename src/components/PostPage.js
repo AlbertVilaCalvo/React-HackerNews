@@ -1,4 +1,4 @@
-import { Component, useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { fetchItem, fetchUser } from '../utils/api'
 import { Link } from 'react-router-dom'
@@ -26,7 +26,7 @@ function PostPage({ location }) {
         console.error('PostPage', error)
         setState({ post: null, error })
       })
-  }, [])
+  }, [postId])
 
   const { error, post } = state
   const theme = useContext(ThemeContext)
