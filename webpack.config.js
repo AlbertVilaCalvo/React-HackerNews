@@ -51,7 +51,7 @@ module.exports = {
       { test: /\.(css)$/, use: ['style-loader', 'css-loader'] },
     ],
   },
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   // Plugins perform a wider range of tasks like bundle optimization, asset management
   // and injection of environment variables
   // https://webpack.js.org/concepts/#plugins
