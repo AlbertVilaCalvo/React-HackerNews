@@ -1,10 +1,19 @@
-# Hacker News clone in React with Hooks
+# Hacker News clone in React with Hooks and TypeScript
 
-Final exercise of the **React Hooks course** of [ui.dev](https://ui.dev) - see the [course website](https://ui.dev/react-hooks) and the [course GitHub repo](https://github.com/uidotdev/react-hooks-course).
+Final exercise of the **React with TypeScript course** of [ui.dev](https://ui.dev).
 
-Exercise instructions/requirements: https://github.com/uidotdev/react-hooks-course-curriculum
+- Started as the final exercise of the **React course** ([course website](https://ui.dev/react) and [GitHub repo](https://github.com/uidotdev/react-course)).
+- Then I converted it to hooks at the **React Hooks course** ([course website](https://ui.dev/react-hooks) and [GitHub repo](https://github.com/uidotdev/react-hooks-course)).
+- After I converted it to TypeScript at the **React with TypeScript course** ([course website](https://ui.dev/react-typescript) and [GitHub repo](https://github.com/uidotdev/react-with-typescript-course)).
 
-The 'official' solution is available at https://hn.ui.dev
+Exercise instructions/requirements:
+- https://github.com/uidotdev/react-course-curriculum
+- https://github.com/uidotdev/react-hooks-course-curriculum
+- https://github.com/uidotdev/react-with-typescript-curriculum
+
+A live version of the official solution is available at https://hn.ui.dev
+
+The official solution code is available at https://github.com/uidotdev/react-with-typescript-curriculum/tree/solution
 
 Hacker News API information: https://github.com/HackerNews/API
 
