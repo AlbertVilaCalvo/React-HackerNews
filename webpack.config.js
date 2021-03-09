@@ -5,11 +5,14 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/', // For React Router to work in development - see 'devServer' below
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   module: {
     // Loaders transform files before they are added to the bundle
@@ -19,7 +22,7 @@ module.exports = {
     rules: [
       // https://webpack.js.org/loaders/babel-loader/
       {
-        test: /\.(js)$/,
+        test: /\.(js|ts|tsx)$/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -37,6 +40,8 @@ module.exports = {
                   runtime: 'automatic',
                 },
               ],
+              // https://babeljs.io/docs/en/babel-preset-typescript
+              '@babel/preset-typescript',
             ],
             // https://babeljs.io/docs/en/plugins
             plugins: [
