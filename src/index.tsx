@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom'
 import New from './components/New'
 import Top from './components/Top'
-import User from './components/User'
+import UserPage from './components/UserPage'
 import PostPage from './components/PostPage'
 import ThemeContext from './contexts/ThemeContext'
 
@@ -68,7 +68,7 @@ function App() {
                   We instead need to do <Route component={User} />
                 */}
                 {/* /user?id=userId */}
-                <Route path="/user" component={User} />
+                <Route path="/user" component={UserPage} />
                 {/* /post?id=postId */}
                 <Route path="/post" component={PostPage} />
                 <Route path="/" component={Top} />

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import PostListItem from './PostListItem'
+import { Post } from '../models/Post'
 
-export default function PostList({ posts }) {
+export default function PostList({ posts }: { posts: Post[] }) {
   if (posts.length === 0) {
     return <p className="center-text">0 posts :(</p>
   }

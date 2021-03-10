@@ -6,10 +6,14 @@ import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
 import Loading from './Loading'
 import ErrorMessage from './ErrorMessage'
+import { User } from '../models/User'
 
-function User({ location }) {
-  const userId = new URLSearchParams(location.search).get('id')
-  const [state, setState] = useState({
+function UserPage({ location }: { location: { search: string } }) {
+  const userId = new URLSearchParams(location.search).get('id') as string
+  const [state, setState] = useState<{
+    error: Error | null
+    user: User | null
+  }>({
     error: null,
     user: null,
   })
@@ -35,7 +39,7 @@ function User({ location }) {
   }
 
   if (user === null) {
-    return <Loading text="Fetching User" />
+    return <Loading text="Fetching UserPage" />
   }
 
   return (
@@ -56,6 +60,6 @@ function User({ location }) {
   )
 }
 
-User.propTypes = {}
+UserPage.propTypes = {}
 
-export default User
+export default UserPage

@@ -7,10 +7,14 @@ import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
 import Loading from './Loading'
 import ErrorMessage from './ErrorMessage'
+import { Post } from '../models/Post'
 
-function PostPage({ location }) {
-  const postId = new URLSearchParams(location.search).get('id')
-  const [state, setState] = useState({
+function PostPage({ location }: { location: { search: string } }) {
+  const postId = new URLSearchParams(location.search).get('id') as string
+  const [state, setState] = useState<{
+    error: Error | null
+    post: Post | null
+  }>({
     error: null,
     post: null,
   })
@@ -18,7 +22,8 @@ function PostPage({ location }) {
   useEffect(() => {
     console.log('PostPage useEffect postId', postId)
     fetchItem(postId)
-      .then((post) => {
+      .then((post) => post as Post)
+      .then((post: Post) => {
         console.log('post', postId, post)
         setState({ post, error: null })
       })

@@ -4,9 +4,13 @@ import PostList from './PostList'
 import Loading from './Loading'
 import ErrorMessage from './ErrorMessage'
 import { useState, useEffect } from 'react'
+import { Post } from '../models/Post'
 
-function UserPosts({ postIds }) {
-  const [state, setState] = useState({
+function UserPosts({ postIds }: { postIds: number[] }) {
+  const [state, setState] = useState<{
+    error: Error | null
+    posts: Post[] | null
+  }>({
     error: null,
     posts: null,
   })

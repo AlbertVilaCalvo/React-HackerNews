@@ -6,9 +6,13 @@ import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
 import Loading from './Loading'
 import ErrorMessage from './ErrorMessage'
+import { Comment } from '../models/Comment'
 
-function Comments({ commentIds }) {
-  const [state, setState] = useState({
+function Comments({ commentIds }: { commentIds: number[] }) {
+  const [state, setState] = useState<{
+    error: Error | null
+    comments: Comment[] | null
+  }>({
     error: null,
     comments: null,
   })

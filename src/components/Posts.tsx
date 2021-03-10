@@ -4,9 +4,14 @@ import { fetchMainPosts } from '../utils/api'
 import PostList from './PostList'
 import Loading from './Loading'
 import ErrorMessage from './ErrorMessage'
+import { Post } from '../models/Post'
+import { PostType } from '../models/PostType'
 
-function Posts({ type }) {
-  const [state, setState] = useState({
+function Posts({ type }: { type: PostType }) {
+  const [state, setState] = useState<{
+    error: Error | null
+    posts: Post[] | null
+  }>({
     error: null,
     posts: null,
   })

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const ErrorMessage = (props) => {
+const ErrorMessage = (props: { text: string }) => {
   return <p className="error">{props.text}</p>
 }
 

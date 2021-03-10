@@ -2,9 +2,10 @@ import { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { formatDate } from '../utils/helpers'
+import { Post } from '../models/Post'
 import ThemeContext from '../contexts/ThemeContext'
 
-const PostListItem = ({ post }) => {
+const PostListItem = ({ post }: { post: Post }) => {
   const theme = useContext(ThemeContext)
 
   return (
