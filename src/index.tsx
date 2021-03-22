@@ -7,10 +7,10 @@ import {
   Route,
   NavLink,
 } from 'react-router-dom'
-import New from './components/New'
-import Top from './components/Top'
-import UserPage from './components/UserPage'
-import PostPage from './components/PostPage'
+import NewPostsPage from './pages/NewPostsPage'
+import TopPostsPage from './pages/TopPostsPage'
+import UserPage from './pages/UserPage'
+import PostPage from './pages/PostPage'
 import ThemeContext from './contexts/ThemeContext'
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
             </nav>
             <main>
               <Switch>
-                <Route path="/new" component={New} />
+                <Route path="/new" component={NewPostsPage} />
                 {/* Important: if we do:
                   <Route path="/user">
                     <User />
@@ -71,7 +71,7 @@ function App() {
                 <Route path="/user" component={UserPage} />
                 {/* /post?id=postId */}
                 <Route path="/post" component={PostPage} />
-                <Route path="/" component={Top} />
+                <Route path="/" component={TopPostsPage} />
               </Switch>
             </main>
           </div>

@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { fetchUser } from '../utils/api'
-import UserPosts from './UserPosts'
+import UserPosts from '../components/UserPosts'
 import { formatDate } from '../utils/helpers'
 import ThemeContext from '../contexts/ThemeContext'
-import Loading from './Loading'
-import ErrorMessage from './ErrorMessage'
+import Loading from '../components/Loading'
+import ErrorMessage from '../components/ErrorMessage'
 import { User } from '../models/User'
 
 function UserPage({ location }: { location: { search: string } }) {
