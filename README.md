@@ -2,7 +2,7 @@
 
 <h3><a href="https://albert-react-hackernews.netlify.app/">⚡️ Try the app here! ⚡️</a></h3>
 
-A simple clone of [Hacker News](https://news.ycombinator.com), built with React, Hooks, React Router, Webpack and TypeScript. It uses the [Hacker News API](https://github.com/HackerNews/API). Has a dark theme implemented with Context.
+A simple clone of [Hacker News](https://news.ycombinator.com), built with React, Hooks, React Router, Webpack and TypeScript. It uses the [Hacker News API](https://github.com/HackerNews/API). Has a dark theme implemented with Context. Hosted at Netlify.
 
 Is the final exercise of the **React with TypeScript course** of [ui.dev](https://ui.dev).
 
