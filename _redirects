@@ -1,0 +1,6 @@
+# Required to host in Netlify.
+# Redirects all routes to / so that React loads and then React Router can do the navigation.
+# Without this we get the Netflify's "Page Not Found, Looks like you've followed a broken
+# link..." page (not our 404).
+
+/*    /index.html   200

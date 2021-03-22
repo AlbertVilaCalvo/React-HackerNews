@@ -3,6 +3,7 @@
 
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/index.tsx',
@@ -66,6 +67,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
+    // Copy _redirects to build/
+    new CopyPlugin({ patterns: [{ from: '_redirects' }] }),
   ],
   // For React Router to work in development, otherwise we get "Cannot GET /new".
   // Requires 'publicPath' above too. It tells the dev server to not try to handle a
